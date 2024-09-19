@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0
+    env_file:
+      - .env  # Load environment variables from the .env file
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist MySQL data
+    ports:
+      - "3307:3306"  # Expose MySQL port
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+
+  web:
+    build: .  # Build the Dockerfile in the current directory
+    command: python manage.py runserver 0.0.0.0:8000  # Run the Django development server
+    volumes:
+      - .:/app  # Mount the current directory to /app in the container
+    ports:
+      - "8000:8000"  # Expose Django application port
+    depends_on:
+      - db  # Ensure the db service is started before web
+    env_file:
+      - .env  # Load environment variables from the .env file
+
+
+volumes:
+  mysql_data:
