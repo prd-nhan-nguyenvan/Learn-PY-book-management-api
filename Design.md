@@ -1,4 +1,4 @@
-# Designing a REST API for a book management system 
+# Designing a REST API for a book management system
 
 ### **1. API Structure**
 The primary resource in a book management system would be `books`, but depending on the complexity, you may also have resources like `authors`, `categories`, and `users` for managing books.
@@ -39,7 +39,7 @@ Use HTTP methods to define the type of operation:
         "imageLink": "url_to_image",
         "link": "url_to_book_info"
       },
-     
+
     ]
     ```
 
