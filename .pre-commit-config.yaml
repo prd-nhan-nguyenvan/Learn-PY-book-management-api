@@ -57,7 +57,7 @@ repos:
     -   id: isort
         args: ["--profile", "black"]
         exclude: 'migrations/.*'
--   repo: https://github.com/qoomon/git-conventional-commits
-    rev: v2.6.7
-    hooks:
-    - id: conventional-commits
+#-   repo: https://github.com/qoomon/git-conventional-commits
+#    rev: v2.6.7
+#    hooks:
+#    - id: conventional-commits
