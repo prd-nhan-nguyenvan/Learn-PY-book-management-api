@@ -1,6 +1,10 @@
 # pre-commit run --all-files
 exclude: 'migrations/.*'
 repos:
+-   repo: https://github.com/opensource-nepal/commitlint
+    rev: v1.2.0
+    hooks:
+    - id: commitlint
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
